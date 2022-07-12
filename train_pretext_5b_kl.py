@@ -1,11 +1,4 @@
-'''
-Author: sy
-Date: 2021-04-08 08:58:48
-LastEditors: pida0
-LastEditTime: 2022-07-12 16:31:59
-Description: 
 
-'''
 #coding: utf-8
 import os
 import torch
