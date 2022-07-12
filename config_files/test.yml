@@ -1,0 +1,54 @@
+DATA:
+  PART_DIR: '/data/sy/DataSet/CelebA/Eval/list_eval_partition.txt' # celeba划分文件
+  ATTR_DIR: '/data/sy/DataSet/CelebA/Anno/list_attr_celeba.txt' # celeba属性标签文件
+  IMG_DIR: '/data/sy/DataSet/CelebA/img_align_celeba_512/' # 用来训练PCT的输入图像，完整的512*512的图像
+  MASK_DIR: '/data/sy/DataSet/CelebA/img_align_celeba_512_mask/' # 用于语义分割任务的mask，均为完整的mask，与IMG_DIR的图像对应
+  PRT_IMG_DIR: '/data/sy/DataSet/CelebA/img_align_celeba_512/' # 用来训练PRT的输入图像，完整的512*512的图像
+  TYPE: 'pretext' # 用来判断是上游任务还是下游任务，上游任务中固定为pretext
+  PCT_TOPK: 9 # PCT中选取的前v个关键部位
+  SELECT_RATE: 1 # 选择比例，上游任务中固定为1
+  PATCH_NUM: 9 #PRT中分割的图像块的个数m*m
+  DATASET_NAME: 'CelebA' 
+
+  # AUGMENT_DIR: '/media/sy/disk/DataSet/LFW/lfw_crop75/'
+  # IMG_DIR: '/media/sy/disk/DataSet/LFW/lfw_crop75/'
+  # TRAIN_FILE: '/media/sy/disk/DataSet/LFW/anno/train.txt'
+  # TEST_FILE: '/media/sy/disk/DataSet/LFW/anno/test.txt'
+  # MASK_DIR: '/media/sy/disk/DataSet/LFW/crop75_mask/'
+  # PR_IMG_DIR: '/media/sy/disk/DataSet/LFW/lfw-deepfunneled/'
+  # TYPE: 'self-pr' # self | fine-tune | self-rot, for transform and rotation 
+  # TOPK_CLS: 8
+  # PATCH_NUM: 9
+  # SELECT_RATE: 1 #5,2,1,10
+  # DATASET_NAME: 'LFWA'
+
+  
+  # TRAIN_IMG_DIR: '/media/data/sy_data/DataSet/MAAD/crop75_train_20w/'
+  # TEST_IMG_DIR: '/media/data/sy_data/DataSet/MAAD/crop75_test_2w/'
+  # TRAIN_FILE: '/media/data/sy_data/DataSet/MAAD/anno/train_attr_file_20w.npy'
+  # TEST_FILE: '/media/data/sy_data/DataSet/MAAD/anno/test_attr_file_2w.npy'
+  # TRAIN_MASK_DIR: '/media/data/sy_data/DataSet/MAAD/crop75_train_20w_mask_19/'
+  # TEST_MASK_DIR: '/media/data/sy_data/DataSet/MAAD/crop75_test_2w_mask_19/'
+  # TEST_PRT_IMG_DIR: '/media/data/jrq_data/MAAD/test/'
+  # TRAIN_PRT_IMG_DIR: '/media/data/jrq_data/MAAD/train/train/'
+  # TYPE: 'pretext' # self | fine-tune | self-rot, for transform and rotation 
+  # PCT_TOPK: 8
+  # PATCH_NUM: 9
+  # SELECT_RATE: 1 
+  # DATASET_NAME: 'MAAD'
+
+TRAIN:
+  BATCHSIZE: 64
+  N_EPOCH: 1 # 80
+  LR: 0.0005
+  # IS_LOCAL: True
+  IS_CONTINUE: False
+  IS_PRETRAINED: False
+  SAVE_PTH: '/data/sy/ckp/' # pth保存的位置
+  LOAD_PTH: '/media/sy/disk/ckp/'
+  D_REPEAT: 3
+
+
+SW_COMMENT: 's3net'
+PRINT_INTER: 5 
+SW_LOG_DIR: '/data/sy/runs/' # tensorboard文件保存的位置

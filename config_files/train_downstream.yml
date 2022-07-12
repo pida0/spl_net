@@ -1,0 +1,40 @@
+DATA:
+  PART_DIR: '/media/data/sy_data/DataSet/CelebA/Eval/list_eval_partition.txt'
+  ATTR_DIR: '/media/data/sy_data/DataSet/CelebA/Anno/list_attr_celeba.txt'
+  IMG_DIR: '/media/data/sy_data/DataSet/CelebA/img_align_celeba/'
+  TYPE: 'downstream' # pretext | downstream | 
+  SELECT_RATE: 500
+  DATASET_NAME: 'CelebA'
+
+  # AUGMENT_DIR: '/media/sy/disk/DataSet/LFW/lfw_crop75/'
+  # IMG_DIR: '/media/sy/disk/DataSet/LFW/lfw_crop75/'
+  # TRAIN_FILE: '/media/sy/disk/DataSet/LFW/anno/train.txt'
+  # TEST_FILE: '/media/sy/disk/DataSet/LFW/anno/test.txt'
+  # MASK_DIR: '/media/sy/disk/DataSet/LFW/crop75_mask/'
+  # PR_IMG_DIR: '/media/sy/disk/DataSet/LFW/lfw-deepfunneled/'
+  # TYPE: 'self-pr' # self | fine-tune | self-rot, for transform and rotation 
+  # TOPK_CLS: 5
+  # PATCH_NUM: 9
+  # SELECT_RATE: 1 #5,2,1,10
+  # DATASET_NAME: 'LFWA'
+
+TRAIN:
+  BATCHSIZE: 24
+  N_EPOCH: 70
+  LR: 0.0001
+
+  IS_CONTINUE: False # if true, check LOAD_PTH
+  LOAD_PTH: '/media/data/sy_data/ckp/epoch39.pth' # '/home/sy/s3net/down_ckp/celeba_1_0.9160.pth'
+  LOAD_EPOCH: 39s
+
+  IS_PRETRAINED: False # if false, train baseline; if true, check load method in train_attr.py 
+  PRETRAIN_PTH: '/media/data/sy_data/ckp/' #4
+  PRETRAIN_EPOCH: 39
+
+  SAVE_PTH: '/media/data/sy_data/ckp/'
+
+
+
+SW_COMMENT: 's3net'
+PRINT_INTER: 5
+SW_LOG_DIR: '/media/data/sy_data/runs/s3net_downstream/500_celeba/no_pre'
